@@ -15,9 +15,9 @@ export function updateCartItem(_id, unit) {
     }
 }
 
-export function deleteCartItem(cartItem) {
+export function deleteCartItem(_id) {
     return {
         type:"DELETE_CART_ITEM",
-        payload:cartItem
+        _id: _id
     }
 }

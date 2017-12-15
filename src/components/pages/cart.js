@@ -8,18 +8,7 @@ import {addToCart, deleteCartItem, updateCartItem} from '../../actions/cartActio
 class Cart extends React.Component {
     
     onDelete(_id) {
-        const currentBooksToDelete = this.props.cart;
-
-        const findBookById = function(book) {
-            return book._id === _id;
-        }
-
-        const indexToDelete = currentBooksToDelete.findIndex(findBookById);
-
-        let cartAfterDelete = [...currentBooksToDelete.slice(0, indexToDelete), 
-            ...currentBooksToDelete.slice(indexToDelete + 1)]
-
-        this.props.deleteCartItem(cartAfterDelete);
+        this.props.deleteCartItem(_id);
     }
 
     onIncrement(_id) {
