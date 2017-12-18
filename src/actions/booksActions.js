@@ -1,10 +1,10 @@
 "use strict"
 import axios from 'axios';
 
-//GET A BOOKS
+//GET ALL BOOKS
 export function getBooks() {
     return function(dispatch) {
-        axios.get("/books")
+        axios.get("/api/books")
             .then(function(response) {
                 dispatch({
                     type: "GET_BOOKS",
@@ -23,7 +23,7 @@ export function getBooks() {
 //POST BOOK
 export function postBooks(book) {
     return function(dispatch) {
-        axios.post("/books", book)
+        axios.post("/api/books", book)
             .then(function(response) {
                 dispatch({
                     type: "POST_BOOK",
@@ -42,7 +42,7 @@ export function postBooks(book) {
 //DELETE A BOOK
 export function deleteBooks(id) {
     return function(dispatch) {
-        axios.delete("/books/" + id)
+        axios.delete("/api/books/" + id)
             .then(function(response) {
                 dispatch({
                     type: "DELETE_BOOK",
