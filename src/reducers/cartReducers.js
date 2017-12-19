@@ -7,6 +7,13 @@ export function cartReducers(state={cart:[]}, action) {
     }
 
     switch(action.type) {
+        case "GET_CART":
+            return {
+                ...state, 
+                cart: action.payload,
+                totalAmount: totals(action.payload).amount,
+                totalQuantity: totals(action.payload).quantity
+            }
         case "ADD_TO_CART":
             return {
                 ...state, 
@@ -14,7 +21,7 @@ export function cartReducers(state={cart:[]}, action) {
                 totalAmount: totals(action.payload).amount,
                 totalQuantity: totals(action.payload).quantity
             }
-        case "UPDATE_CART_ITEM":
+        case "UPDATE_CART":
             return {
                 ...state,
                 cart: action.payload,
@@ -22,18 +29,11 @@ export function cartReducers(state={cart:[]}, action) {
                 totalQuantity: totals(action.payload).quantity
             }
         case "DELETE_CART_ITEM":
-            // Create a copy of the current array of books
-            const currentBooksToDelete = [...state.cart];
-            const indexToDelete = currentBooksToDelete.findIndex(findCartItemById);
-
-            let cartDelete = [...currentBooksToDelete.slice(0, indexToDelete),
-                ...currentBooksToDelete.slice(indexToDelete + 1)];
-
             return {
                 ...state,
-                cart: cartDelete,
-                totalAmount: totals(cartDelete).amount,
-                totalQuantity: totals(cartDelete).quantity
+                cart: action.payload,
+                totalAmount: totals(action.payload).amount,
+                totalQuantity: totals(action.payload).quantity
             }
     }
     return state;

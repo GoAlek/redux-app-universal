@@ -3,7 +3,7 @@ import React from 'react';
 import {Row, Col, Well, Button} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import {bindActionCreators} from '../../../../../../AppData/Local/Microsoft/TypeScript/2.6/node_modules/redux';
-import {addToCart, updateCartItem} from '../../actions/cartActions';
+import {addToCart, updateCart} from '../../actions/cartActions';
 
 class BookItem extends React.Component {
     
@@ -27,7 +27,7 @@ class BookItem extends React.Component {
             if (cartIndex === -1) {
                 this.props.addToCart(book);
             } else {
-                this.props.updateCartItem(_id, 1, this.props.cart);
+                this.props.updateCart(_id, 1, this.props.cart);
             }
         } else {
             // CART IS EMPTY
@@ -62,7 +62,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
         addToCart: addToCart,
-        updateCartItem: updateCartItem
+        updateCart: updateCart
     }, dispatch)
 }
 
