@@ -121,11 +121,11 @@ app.get('/images', function(req, res) {
       return console.error(err);
     }
     //Create an empty array
-    const fileNames = [];
+    const imgArr = [];
     files.forEach(function(file) {
-      fileNames.push({name: file});
+      imgArr.push({name: file});
     });
-    res.json(fileNames);
+    res.json(imgArr);
   });
 })
 // END APIs
