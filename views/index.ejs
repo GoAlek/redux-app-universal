@@ -2,15 +2,14 @@
 <html>
     <head>
         <title>Hello Redux</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0" />
 
         <link rel="stylesheet" href="bootstrap.min.css" type="text/css" />
         <link rel="stylesheet" href="style.css" type="text/css" />
     </head>
     <body>
-        <div id="app">
-
-        </div>
+        <div id="app"><%- reactComponent -%></div>
+        <script>window.INITIAL_STATE=<%- initialState -%></script>
         <script src="bundle.js"></script>
     </body>
 </html>

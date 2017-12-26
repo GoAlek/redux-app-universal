@@ -23,12 +23,12 @@ class BooksForm extends React.Component{
         this.props.getBooks();
         //GET IMAGES FROM API
         axios.get('/api/images')
-            .then((response) => {
+            .then(function(response) {
                 this.setState({images: response.data});
-            })
-            .catch((err) => {
+            }.bind(this))
+            .catch(function(err) {
                 this.setState({images: 'error while loading image files from server', img:''})
-            })
+            }.bind(this))
     }
 
     handleSelect(imgName) {
