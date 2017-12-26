@@ -34,7 +34,7 @@ function handleRender(req, res) {
                 } else if(redirect) {
                     res.status(302, redirect.pathname + redirect.search);
                 } else if(props) {
-                    const reactComponent = ReactDom.renderToString(
+                    const reactComponent = renderToString(
                         <Provider store={store}>
                             <RouterContext {...props}/>
                         </Provider>
